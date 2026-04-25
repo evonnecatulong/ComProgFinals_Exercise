@@ -1,0 +1,20 @@
+try:
+    username = input("Enter Username: ")
+    age_input = input("Enter Age: ")
+
+    age = int(age_input)
+
+    with open("users.txt", "a") as file:
+        file.write(f"{username} - {age}\n")
+    
+    print("\n--- Saved Users ---")
+    with open("users.txt", "r") as file:
+        print(file.read())
+
+except ValueError:
+    print("Error: Please enter a valid number for age.")
+except FileNotFoundError:
+    print("Error: The file could not be found.")
+
+finally:
+    print("System complete.")
